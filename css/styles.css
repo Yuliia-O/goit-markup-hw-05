@@ -25,6 +25,8 @@
 
   --portfolio-card-hover-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  --trans-time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -160,6 +162,21 @@ img {
   margin-right: 50px;
 }
 
+.nav-list-link.current {
+  position: relative;
+}
+
+.nav-list-link.current::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
 .contact-list {
   display: flex;
 }
@@ -177,6 +194,8 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms var(--trans-time-function);
 }
 
 .nav-list-link:hover,
@@ -238,6 +257,8 @@ img {
 
   color: var(--font-color-dark-background);
   background-color: var(--accent-color);
+
+  transition: background-color 250ms var(--trans-time-function);
 }
 
 .order-btn:hover,
@@ -297,6 +318,25 @@ img {
   padding-top: 47px;
 }
 
+.service-img-wrapper {
+  position: relative;
+}
+
+.service-img-text {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  color: var(--font-color-dark-background);
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 /* Team */
 
 .team {
@@ -346,6 +386,7 @@ img {
   border-radius: 50%;
 
   color: var(--social-icons);
+  transition: background-color 250ms var(--trans-time-function);
 }
 
 .social-link:hover,
@@ -355,6 +396,8 @@ img {
 
 .social-icon {
   fill: var(--social-icons);
+
+  transition: fill 250ms var(--trans-time-function);
 }
 
 .social-link:hover .social-icon,
@@ -386,10 +429,14 @@ img {
   padding: 16px;
   border: 1px solid var(--client-icons);
   border-radius: 4px;
+
+  transition: border-color 250ms var(--trans-time-function);
 }
 
 .clients-logo {
   fill: var(--client-icons);
+
+  transition: fill 250ms var(--trans-time-function);
 }
 
 .clients-link:hover,
@@ -434,6 +481,8 @@ img {
 
 .address-link {
   color: var(--font-color-dark-background-opacity);
+
+  transition: color 250ms var(--trans-time-function);
 }
 
 .address-link[target='_blank'] {
